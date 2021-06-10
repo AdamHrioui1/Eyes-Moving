@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Eyes Moving</title>
+</head>
+<body>
+    <div class="face">
+        <div class="eyes_wrapper">
+            <div class="eye_container" id="eye_container">
+                <div class="eye" id="eye"></div>
+            </div>
+    
+            <div class="eye_container" id="eye_container">
+                <div class="eye" id="eye"></div>
+            </div>
+        </div>
+        <div class="mouth"></div>
+    </div>
+
+    <script>
+        let eye = document.querySelectorAll("#eye");
+        let eye_container = document.querySelector("#eye_container");
+
+        document.addEventListener("mousemove", e => {
+           eye.forEach(Element => {
+            Element.style.top = (eye_container.clientHeight / innerHeight * e.clientY) * 0.8  + "px";
+            Element.style.left = ((eye_container.clientWidth - 50) / innerWidth * e.clientX) * 0.8 + "px";
+
+
+            })
+            //console.log(eye_container.clientHeight)
+        });
+    </script>
+</body>
+
+</html>
